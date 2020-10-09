@@ -67,6 +67,7 @@ const Home = () => {
                 setData(newData)
             }).catch(err => {
                 console.log(err)
+                
             })
     }
     const makeComment = (text, postId) => {
@@ -90,10 +91,14 @@ const Home = () => {
                         return item
                     }
                 })
+                
                 setData(newData)
-            }).catch(err => {
+
+            }
+            ).catch(err => {
                 console.log(err)
             })
+
     }
 
 
@@ -136,7 +141,7 @@ const Home = () => {
                             </div>
                             <div className="card-countent">
                                 <i className="material-icons" style={{ color: "red" }}>favorite</i>
-                                {item.like.includes(state._id)
+                                {item.like.includes(state?._id)
                                     ? <i class="material-icons"
                                         onClick={() => { unlike(item._id) }}
 
@@ -165,6 +170,7 @@ const Home = () => {
                                     makeComment(e.target[0].value, item._id)
                                 }} >
                                     <input type='text' placeholder="comment" />
+
                                 </form>
 
                             </div>

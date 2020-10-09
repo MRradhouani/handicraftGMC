@@ -34,23 +34,24 @@ const Profiles = () => {
                     }}>
                         <div>
                             <img alt=" " style={{ width: "160px", height: '160px', borderRadius: "80px" }}
-                        src={profile.user.pic} />
+                        src={profile.user?.pic} />
                         />
                         </div>
                         <div>
 
                             <h4>{profile.user?.name} </h4>
                             <h5>{profile.user?.email} </h5>
+                            <h4>{profile.user?.craft} </h4>
 
 
                             <div style={{ display: "flex", justifyContent: "space-between", width: "110%" }}>
-                                <h6> {profile.posts.length} posts</h6>
+                                <h6> {profile.posts?.length} posts</h6>
                             </div>
                         </div>
                     </div>
                     <div className="gallery">
                         {
-                            profile.posts.map(item => {
+                            profile.posts?.map(item => {
                                 return (
                                     <img key={item._id} className="item" src={item.photo} alt={item.title} />
                                 )

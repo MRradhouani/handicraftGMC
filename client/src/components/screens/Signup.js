@@ -6,6 +6,8 @@ const Signup = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const [craft, setcraft] = useState("")
+    const [PhoneNumber, setPhoneNumber] = useState("")
     const [url, setUrl] = useState(undefined)
     const [image, setImage] = useState('')
 
@@ -49,7 +51,9 @@ const Signup = () => {
             body: JSON.stringify({
                 name,
                 password,
+                craft,
                 email,
+                PhoneNumber,
                 pic:url
             })
 
@@ -86,6 +90,8 @@ const Signup = () => {
                     welcom to our Handicraft site
                 </h3>
                 <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" placeholder="craft" value={craft} onChange={(e) => setcraft(e.target.value)} />
+                <input type="text" placeholder="PhoneNumber" value={PhoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                 <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 

@@ -16,8 +16,8 @@ const reqLogin = require('../middleware/reqLogin')
 // })
 
 router.post('/signup', (req, res) => {
-    const { name, email, password,pic } = req.body
-    if (!email || !password || !name) {
+    const { name, email, password,pic ,craft,PhoneNumber} = req.body
+    if (!email || !password || !name || !craft || !PhoneNumber) {
         return res.status(422).json({ error: "please add all the fields" })
     }
     User.findOne({ email: email })
@@ -31,6 +31,8 @@ router.post('/signup', (req, res) => {
                         email,
                         password: hashedpassword,
                         name,
+                        craft,
+                        PhoneNumber,
                         pic
                     })
                     user.save()
@@ -60,8 +62,8 @@ router.post('/Login', (req, res) => {
                         // res.json({ message: "Successflly signed in :) " })
 
                         const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET)
-                       const {_id,name,email,pic}=savedUser
-                        res.json({ token,user:{_id,name,email,pic} })
+                       const {_id,name,email,pic,craft,PhoneNumber}=savedUser
+                        res.json({ token,user:{_id,name,email,pic,craft,PhoneNumber} })
                     }
                     else {
                         return res.status(422).json({ error: "Invalid Email or password" })
